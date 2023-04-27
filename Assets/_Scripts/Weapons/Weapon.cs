@@ -59,4 +59,10 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(WeaponData.AttackDelay);
         _canAttack = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        Debug.Log("attacking");
+    }
 }
