@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Agent/MovementData")]
-public class MovementSO : ScriptableObject
+public class MovementDataSO : ScriptableObject
 {
     [Range(1, 10)]
     public float MaxSpeed = 5;

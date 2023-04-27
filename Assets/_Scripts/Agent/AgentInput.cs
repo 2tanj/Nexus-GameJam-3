@@ -15,7 +15,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
     public UnityEvent<Vector2> OnPointerPositionChange { get; set; }
 
     [field: SerializeField]
-    public UnityEvent OnFireButtonPressed { get; set; }
+    public UnityEvent/*<Vector2>*/ OnFireButtonPressed { get; set; }
     [field: SerializeField]
     public UnityEvent OnFireButtonReleased { get; set; }
     [field: SerializeField]

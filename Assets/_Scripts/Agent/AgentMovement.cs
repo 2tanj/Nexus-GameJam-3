@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class AgentMovement : MonoBehaviour
 {
     [field: SerializeField]
-    public MovementSO MovementData { get; set; }
+    public MovementDataSO MovementData { get; set; }
 
     [SerializeField]
     public float _dashAmount = 750f, _dashCooldown = 1.5f;
