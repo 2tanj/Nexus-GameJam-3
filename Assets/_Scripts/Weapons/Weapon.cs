@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Weapon : MonoBehaviour
 {
     [field: SerializeField]
     public WeaponDataSO WeaponData { get; private set; }
 
+    public Vector3 OriginalScale   { get; private set; }
+
     protected bool _canAttack = true;
+
+
+    private void Awake() => OriginalScale = transform.localScale;
 
     public void Attack()
     {

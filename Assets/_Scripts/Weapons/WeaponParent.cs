@@ -49,12 +49,20 @@ public class WeaponParent : MonoBehaviour
         _currentWeapon.transform.localPosition = Vector3.zero;
     }
 
+    // flag = false;
+    // if (dir, !flag) 
+
     public void AimWeapon(Vector2 aimDirection)
     {
         if (_currentWeapon.WeaponData.WeaponType == WeaponType.HEAVY)
             return;
 
-        _currentWeapon.transform.up = (aimDirection - (Vector2)transform.position).normalized;
+        var direction = (aimDirection - (Vector2)transform.position).normalized;
+        _currentWeapon.transform.up = direction;
+
+        var scale = _currentWeapon.OriginalScale;
+        scale.x = direction.x < 0 ? scale.x *= -1 : scale.x;
+        _currentWeapon.transform.localScale = scale;
     }
 
     public void Attack() => _currentWeapon.Attack();

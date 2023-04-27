@@ -1,37 +1,35 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.Experimental.Rendering.Universal;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
-//[RequireComponent(typeof(SpriteRenderer))]
-//public class AgentRenderer : MonoBehaviour
-//{
-//    [SerializeField]
-//    private float _rotationSpeed = 30;
+[RequireComponent(typeof(SpriteRenderer))]
+public class AgentRenderer : MonoBehaviour
+{
+    [SerializeField]
+    private float _rotationSpeed = 30;
 
-//    [SerializeField]
-//    private Transform _light = null;
-//    private SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    private Transform _parent;
 
-//    private void Awake()
-//    {
-//        _spriteRenderer = GetComponent<SpriteRenderer>();
-//    }
+    //[SerializeField]
+    private Transform _light = null;
 
-//    public void FaceDirection(Vector2 pointerInput)
-//    {
-//        var direction = (Vector3)pointerInput - transform.position;
-//        var result = Vector3.Cross(Vector2.up, direction);
+    public void FaceDirection(Vector2 pointerInput)
+    {
+        var direction = (Vector3)pointerInput - transform.position;
+        var result = Vector3.Cross(Vector2.up, direction);
 
-//        bool flip = result.z > 0 ? true : false;
-//        _spriteRenderer.flipX = flip;
+        var rot = _parent.rotation;
+        rot.y = result.z > 0 ? 180 : 0;
+        _parent.rotation = rot;
 
-//        // Light rotation
-//        if (_light == null)
-//            return;
+        // Light rotation
+        //if (_light is null)
+        //    return;
 
-//        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-//        Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
-//        _light.transform.rotation = Quaternion.Lerp(_light.transform.rotation, rot, _rotationSpeed * Time.deltaTime);
-//    }
-//}
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+        //_light.transform.rotation = Quaternion.Lerp(_light.transform.rotation, rot, _rotationSpeed * Time.deltaTime);
+    }
+}
