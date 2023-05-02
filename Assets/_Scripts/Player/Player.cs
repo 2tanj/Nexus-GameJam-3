@@ -38,4 +38,11 @@ public class Player : MonoBehaviour, IAgent, IHittable
             IsDead = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.TryGetComponent(out IPickup pickup);
+        pickup?.Pickup();
+        
+    }
 }

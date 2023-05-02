@@ -10,4 +10,7 @@ public class EnemyDataSO : ScriptableObject
     [field: SerializeField]
     [field: Range(1, 100)]
     public int Damage { get; private set; } = 1;
+
+    [field: SerializeField]
+    public ExperiencePU ExpPU { get; private set; }
 }

@@ -67,14 +67,15 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
 
         Debug.Log(Health);
 
-        if (Health <= 0)
-        {
-            Debug.Log("dead");
-            OnDeath?.Invoke();
-            IsDead = true;
-            Death();
-        }
+        if (Health <= 0) Death();
     }
 
-    private void Death() => Destroy(gameObject);
+    private void Death() 
+    {
+        IsDead = true;
+        OnDeath?.Invoke();
+
+        _enemyData.ExpPU.Spawn(transform.position);
+        Destroy(gameObject); 
+    }
 }

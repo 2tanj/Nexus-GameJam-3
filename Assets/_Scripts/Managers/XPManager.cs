@@ -39,6 +39,20 @@ public class XPManager : MonoBehaviour
         _xpToLevel       = _increment;
     }
 
+
+    public IPickup TESTING;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            var cao = UnityEngine.Random.Range(-10, 10);
+            Debug.Log(cao);
+
+            TESTING.TESTING(cao);
+            TESTING.Spawn(Vector3.zero);
+        }
+    }
+
     public void UpdateUI()
     {
 
@@ -48,5 +62,8 @@ public class XPManager : MonoBehaviour
     {
         ++_currentLevel;
         _xpToLevel += _increment *= _currentModifier += _modifierIncrement;
+
+        Debug.LogWarning("Leveled up: " + _currentLevel);
+        // perform card showing logic here
     }
 }

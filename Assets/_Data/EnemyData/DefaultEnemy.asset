@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 10
   <Damage>k__BackingField: 1
+  <ExpPU>k__BackingField: {fileID: 8658715110476744228, guid: eb5de9a13999ced44859fd6b6fed65eb, type: 3}

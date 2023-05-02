@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AgentMovement : MonoBehaviour
@@ -56,20 +57,35 @@ public class AgentMovement : MonoBehaviour
         return Mathf.Clamp(CurrentVelocity, 0, MovementData.MaxSpeed);
     }
 
-    public void Dash() => 
-        StartCoroutine(Dash(_dashCooldown));
+    //public void Dash() =>
+    //    //StartCoroutine(Dash(_dashCooldown));
+    //    Dash2();
 
-    private IEnumerator Dash(float cooldown)
+    // TODO: - dont stagger on dash complete(when running, dont slow down)
+    //       - add cd
+    public void Dash()
     {
         if (_canDash)
         {
-            RigidBody.AddForce(_lastMovementDirection * _dashAmount);
-            _canDash = false;
-
-            yield return new WaitForSeconds(cooldown);
             _canDash = true;
+            var dashPos = (Vector3)_lastMovementDirection * 1.5f;
+
+            transform.DOMove(transform.position + dashPos, .3f)
+                     .OnComplete(() => _canDash = true);
         }
-        else
-            Debug.LogWarning("Dash on cd!");
     }
+
+    //private IEnumerator Dash(float cooldown)
+    //{
+    //    if (_canDash)
+    //    {
+    //        RigidBody.AddForce(_lastMovementDirection * _dashAmount);
+    //        _canDash = false;
+
+    //        yield return new WaitForSeconds(cooldown);
+    //        _canDash = true;
+    //    }
+    //    else
+    //        Debug.LogWarning("Dash on cd!");
+    //}
 }
