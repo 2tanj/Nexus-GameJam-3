@@ -20,19 +20,13 @@ public class WeaponParent : MonoBehaviour
     {
         Instance = this;
 
-        ////TODO: remove this
-        //_currentWeapon = GetComponentInChildren<Weapon>();
-
         ChangeWeapon(_weapons[_currentWeaponIndex++]);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ChangeWeapon(_weapons[_currentWeaponIndex % _weapons.Count]);
-            _currentWeaponIndex++;
-        }
+            ChangeWeapon(_weapons[_currentWeaponIndex++ % _weapons.Count]);
     }
 
     public void ChangeWeapon(Weapon newWeapon)
@@ -48,9 +42,6 @@ public class WeaponParent : MonoBehaviour
         _currentWeapon = Instantiate(weapon, parent);
         _currentWeapon.transform.localPosition = Vector3.zero;
     }
-
-    // flag = false;
-    // if (dir, !flag) 
 
     public void AimWeapon(Vector2 aimDirection)
     {

@@ -13,7 +13,7 @@ public class AgentRenderer : MonoBehaviour
     private Transform _parent;
 
     //[SerializeField]
-    private Transform _light = null;
+    //private Transform _light = null;
 
     public void FaceDirection(Vector2 pointerInput)
     {
@@ -32,4 +32,20 @@ public class AgentRenderer : MonoBehaviour
         //Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
         //_light.transform.rotation = Quaternion.Lerp(_light.transform.rotation, rot, _rotationSpeed * Time.deltaTime);
     }
+    
+    //public void FaceDirection(Vector2 pointerInput)
+    //{
+    //    var direction = (Vector3)pointerInput - transform.position;
+    //    var result = Vector3.Cross(Vector2.up, direction);
+
+    //    _spriteRenderer.flipX = result.z > 0;
+
+    //    //// Light rotation
+    //    //if (_light == null)
+    //    //    return;
+
+    //    //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    //    //Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+    //    //_light.transform.rotation = Quaternion.Lerp(_light.transform.rotation, rot, _rotationSpeed * Time.deltaTime);
+    //}
 }

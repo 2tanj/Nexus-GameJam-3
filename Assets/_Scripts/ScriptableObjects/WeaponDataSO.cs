@@ -9,6 +9,10 @@ public class WeaponDataSO : ScriptableObject
 
     public string WeaponName;
 
+    [field: SerializeField]
+    public GameObject ImpactPrefab { get; private set; }
+
+
     [Range(0, 10), SerializeField]
     private float _attackDelay = 1f;
     public float AttackDelay {
@@ -29,8 +33,17 @@ public class WeaponDataSO : ScriptableObject
         }
     }
 
-    [Range(0, 5)]
-    public float AttackDuration = 1f;
+    [field: SerializeField, Range(0, 5)]
+    public float AttackDuration { get; private set; } = 1f;
+
+    [field: SerializeField, Range(1, 50)]
+    public int Damage { get; private set; } = 1;
+
+    [field: SerializeField, Range(1, 50)]
+    public float KnockbackPower { get; private set; } = 1;
+
+    [field: SerializeField, Range(1, 50)]
+    public float KnockbackDelay { get; private set; } = .01f;
 }
 
 [System.Serializable]
