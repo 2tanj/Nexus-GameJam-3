@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8009485111830636613}
   - component: {fileID: 466081841270783207}
   - component: {fileID: 8009485111830636612}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DefaultLightWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

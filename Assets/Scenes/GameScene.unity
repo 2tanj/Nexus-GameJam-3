@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e15b5ad98cbca4c86e74bb90f50ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementData>k__BackingField: {fileID: 11400000, guid: 64f0519f274c4e94bb93132663df978c, type: 2}
+  <MovementData>k__BackingField: {fileID: 11400000, guid: d297e9dfdd8ebb34e9a19bfb16705aa2, type: 2}
   _dashAmount: 750
   _dashCooldown: 1.5
   <OnVelocityChange>k__BackingField:
