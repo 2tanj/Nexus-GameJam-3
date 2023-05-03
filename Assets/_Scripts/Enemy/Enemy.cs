@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     }
     private IEnumerator KnockBackCoroutine(Vector2 direction, float power, float duration)
     {
+        Debug.Log(direction + " " + power + " " + duration);
         _agentMovement.RigidBody.AddForce(direction.normalized * power, ForceMode2D.Force);
         yield return new WaitForSeconds(duration);
         ResetKnockbackParams();

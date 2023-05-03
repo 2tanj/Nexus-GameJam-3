@@ -8,6 +8,9 @@ public class Player : MonoBehaviour, IAgent, IHittable
     [SerializeField]
     private int _maxHealth;
 
+    [SerializeField]
+    private IAbility _currentAbility;
+
     public int Health  { get; private set; }
 
     public bool IsDead { get; private set; }
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour, IAgent, IHittable
 
 
     private void Start() => Health = _maxHealth;
+
+    public void PerformAbility(Vector2 mousePos) => _currentAbility.PerformAbility(this, mousePos);
 
     public void GetHit(int damage, GameObject damageDealer)
     {

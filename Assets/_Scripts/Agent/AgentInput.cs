@@ -6,25 +6,21 @@ using UnityEngine.Events;
 
 public class AgentInput : MonoBehaviour, IAgentInput
 {
-    private Camera _mainCam;
     private bool _fireButtonDown = false;
 
     [field: SerializeField]
-    public UnityEvent<Vector2> OnMovementKeyPressed { get; set; }
+    public UnityEvent<Vector2> OnMovementKeyPressed    { get; set; }
     [field: SerializeField]
     public UnityEvent<Vector2> OnPointerPositionChange { get; set; }
+    [field: SerializeField]
+    public UnityEvent<Vector2> OnAbilityButtonPressed  { get; set; }
 
     [field: SerializeField]
-    public UnityEvent/*<Vector2>*/ OnFireButtonPressed { get; set; }
-    [field: SerializeField]
-    public UnityEvent OnFireButtonReleased { get; set; }
-    [field: SerializeField]
-    public UnityEvent OnDashButtonPressed { get; set; }
-
-    private void Awake()
-    {
-        _mainCam = Camera.main;
-    }
+    public UnityEvent OnFireButtonPressed    { get; set; }
+    [field: SerializeField]                  
+    public UnityEvent OnFireButtonReleased   { get; set; }
+    [field: SerializeField]                  
+    public UnityEvent OnDashButtonPressed    { get; set; }
 
     private void Update()
     {
@@ -32,11 +28,12 @@ public class AgentInput : MonoBehaviour, IAgentInput
         GetPointerInput();
         GetFireInput();
         GetDashInput();
+        GetAbilityInput();
     }
 
     private void GetPointerInput()
     {
-        var pointerPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
+        var pointerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         OnPointerPositionChange?.Invoke(pointerPos);
     }
 
@@ -49,6 +46,15 @@ public class AgentInput : MonoBehaviour, IAgentInput
     {
         if (Input.GetButtonDown("Jump"))
             OnDashButtonPressed?.Invoke();
+    }
+
+    private void GetAbilityInput()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            var pointerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            OnAbilityButtonPressed?.Invoke(pointerPos);
+        }
     }
 
     private void GetFireInput()
