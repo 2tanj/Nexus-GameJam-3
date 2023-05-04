@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     [SerializeField]
     private EnemyDataSO _enemyData;
 
-    public int  Health        { get; private set; } = 5;
+    public float  Health        { get; private set; } = 5;
     public bool IsKnockedBack { get; private set; }
     public bool IsDead        { get; private set; }
 
@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     }
     private IEnumerator KnockBackCoroutine(Vector2 direction, float power, float duration)
     {
-        Debug.Log(direction + " " + power + " " + duration);
         _agentMovement.RigidBody.AddForce(direction.normalized * power, ForceMode2D.Force);
         yield return new WaitForSeconds(duration);
         ResetKnockbackParams();
@@ -58,7 +57,7 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
             _enemyAttack.Attack(_enemyData.Damage);
     }
 
-    public void GetHit(int damage, GameObject damageDealer)
+    public void GetHit(float damage, GameObject damageDealer)
     {
         //if (IsDead)
         //    return;

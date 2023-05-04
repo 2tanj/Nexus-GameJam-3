@@ -67,7 +67,7 @@ public class Weapon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.TryGetComponent(out Enemy enemy);
-        enemy?.GetHit(WeaponData.Damage, gameObject);
+        enemy?.GetHit(WeaponData.Damage * PlayerStats.Instance.AttackModifier, gameObject);
 
         collision.TryGetComponent(out IKnockback knockback);
         var hitDirection = WeaponData.WeaponType == WeaponType.LIGHT ? 

@@ -556,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641657378}
   - component: {fileID: 641657377}
+  - component: {fileID: 641657379}
   m_Layer: 0
   m_Name: --GAME MANAGER--
   m_TagString: Untagged
@@ -593,6 +594,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &641657379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641657376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7707823d49d03ca4385302ee90eea34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agentInput: {fileID: 866391636}
 --- !u!1 &683824529
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1012,7 @@ GameObject:
   - component: {fileID: 866391636}
   - component: {fileID: 866391635}
   - component: {fileID: 866391637}
+  - component: {fileID: 866391639}
   m_Layer: 7
   m_Name: --PLAYER--
   m_TagString: Untagged
@@ -1175,7 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5
-  _currentAbility: {fileID: 1739625588962136880, guid: 93858776ed280a740b92f5dce6417f70, type: 3}
+  _currentAbility: {fileID: -6375119070202863245, guid: 7279ed2ef2d4ca243b32cb84a551ffa0, type: 3}
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -1198,6 +1213,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.009394449, y: -0.09634074}
   m_Size: {x: 1.1207765, y: 1.6902387}
   m_Direction: 0
+--- !u!114 &866391639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866391632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a489d1d7dcf87246a3dce209c35e879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackModifier: 1
 --- !u!1 &888872258
 GameObject:
   m_ObjectHideFlags: 0

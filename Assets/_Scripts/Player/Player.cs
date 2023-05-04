@@ -10,10 +10,17 @@ public class Player : MonoBehaviour, IAgent, IHittable
 
     [SerializeField]
     private IAbility _currentAbility;
+    public  IAbility CurrentAbility { 
+                get => _currentAbility; 
+        private set {
+            _currentAbility = value;
+            _currentAbility.ActivateAbility(); 
+        } 
+    }
 
-    public int Health  { get; private set; }
+    public float Health { get; private set; }
 
-    public bool IsDead { get; private set; }
+    public bool IsDead  { get; private set; }
 
     [field: SerializeField]
     public UnityEvent OnGetHit { get; set; }
@@ -21,11 +28,19 @@ public class Player : MonoBehaviour, IAgent, IHittable
     public UnityEvent OnDeath  { get; set; }
 
 
-    private void Start() => Health = _maxHealth;
+    private void Start()
+    {
+        Health = _maxHealth;
+        _currentAbility.ActivateAbility();
+    }
 
-    public void PerformAbility(Vector2 mousePos) => _currentAbility.PerformAbility(this, mousePos);
+    public void PerformAbility(Vector2 mousePos)
+    {
+        if (_currentAbility.CanBeUsed)
+            _currentAbility.PerformAbility(this, mousePos);
+    }
 
-    public void GetHit(int damage, GameObject damageDealer)
+    public void GetHit(float damage, GameObject damageDealer)
     {
         if (IsDead)
             return;

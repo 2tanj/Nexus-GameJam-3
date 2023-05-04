@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Knife throw
   <Description>k__BackingField: Throws a knife
-  <Cooldown>k__BackingField: 4.9
+  <Cooldown>k__BackingField: 1

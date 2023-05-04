@@ -37,7 +37,7 @@ public class WeaponDataSO : ScriptableObject
     public float AttackDuration { get; private set; } = 1f;
 
     [field: SerializeField, Range(1, 50)]
-    public int Damage { get; private set; } = 1;
+    public float Damage { get; private set; } = 1;
 
     [field: SerializeField, Range(1, 50)]
     public float KnockbackPower { get; private set; } = 1;
